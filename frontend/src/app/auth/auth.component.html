@@ -1,0 +1,46 @@
+<div class=" card bg-neutral text-neutral-content flex-row border-2 rounded-xl p-0 mx-auto">
+  <div class="card-body text-center py-10 ">
+    <h1 class="text-center font-bold text-2xl">
+        <img src="/assets/dumbell.svg" alt="logo" class="size-12 inline rotate-90">
+        GET_MGADDER
+        <img src="/assets/dumbell.svg" alt="logo" class="size-12 inline rotate-90">
+    </h1>
+    
+    <label class="form-control w-full">
+      <div class="label pb-0.5">
+        <span class="label-text">Email address</span>
+      </div>
+      <input
+        type="text"
+        class="input input-bordered w-full h-9"
+        #email
+      />
+    </label>
+
+    <label class="form-control w-full">
+      <div class="label py-0.5">
+        <span class="label-text">Password</span>
+      </div>
+      <input
+        type="password"
+        class="input input-bordered w-full h-9"
+        #password
+      />
+    </label>
+    <a href="" class="ml-auto text-sm hover:underline">Forgot password?</a>
+    <button class="btn btn-wide mx-auto !min-h-1 !h-10"
+        (click)="login(email.value, password.value)"
+    >Login</button>
+    <div class="flex gap-5">
+        <button class="btn btn-wide mx-auto !min-h-1 !h-10">
+            <img src="/assets/google-icon.svg" alt="google logo" class="size-5">
+            Login with google
+        </button>
+        <button class="btn btn-wide mx-auto !min-h-1 !h-10">
+            <img src="/assets/apple-icon.svg" alt="apple logo" class="size-6">
+            Login with apple
+        </button>
+    </div>
+  </div>
+  <img src="/assets/img1.avif" alt="mg" class="rounded-r-lg" />
+</div>

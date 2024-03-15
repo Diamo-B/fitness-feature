@@ -2,7 +2,9 @@ import { Request, Response } from "express";
 import db from "../../prisma/prisma";
 import { comparePasswords, hashPassword } from "../utils/hash";
 import jwt from "jsonwebtoken";
+import { Gender } from "@prisma/client";
 export const signup = async (req: Request, res: Response) => {
+  
   const {
     firstName,
     lastName,
@@ -26,7 +28,7 @@ export const signup = async (req: Request, res: Response) => {
       firstName,
       lastName,
       email,
-      gender,
+      gender: gender==="M"?Gender.male:Gender.female,
       weight,
       height,
       birthdate,
@@ -48,7 +50,7 @@ export const login = async (req: Request, res: Response) => {
     return res
       .status(404)
       .json({ message: "The given email address isn't registered" });
-  const comparison = comparePasswords(password, user.password);
+  const comparison = await comparePasswords(password, user.password);
   if (!comparison)
     return res
       .status(400)
