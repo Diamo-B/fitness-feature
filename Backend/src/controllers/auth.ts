@@ -64,3 +64,8 @@ export const login = async (req: Request, res: Response) => {
   });
 };
 
+export const verifyAuth = (req:Request, res:Response) => {
+  const token = req.user;
+  
+    return res.status(200).json({decoded:token})
+}

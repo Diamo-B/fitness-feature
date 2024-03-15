@@ -6,18 +6,25 @@ import {HttpClientModule} from "@angular/common/http";
 import { AppComponent } from './app.component';
 import { AuthComponent } from './auth/auth.component';
 import { HomeComponent } from './home/home.component';
-
+import { ToastComponent } from './toast/toast.component';
+import { ChartModule } from 'primeng/chart';
+import { RunningComponent } from './running/running.component';
+import { CaloriesComponent } from './calories/calories.component';
 @NgModule({
   declarations: [
     AppComponent,
     AuthComponent,
-    HomeComponent
+    HomeComponent,
+    ToastComponent,
+    RunningComponent,
+    CaloriesComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ChartModule
   ],
   providers: [],
   bootstrap: [AppComponent]
