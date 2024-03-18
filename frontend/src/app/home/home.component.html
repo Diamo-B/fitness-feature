@@ -1,36 +1,65 @@
-<main>
-  <header>
-
-  </header>
-  <div>
-    <section class="grid grid-cols-2 border-2 border-white rounded-xl w-2/3">
-      <div class="p-10 border-r-2 border-b-2">
-        <h1>Exercise Tracker</h1>
+<header>
+  <nav class="navbar bg-base-100">
+    <div class="navbar-start">
+      <div class="dropdown">
+        <div tabindex="0" role="button" class="btn btn-ghost btn-circle">
+          <img class="size-5" src="assets/menuIcon.svg" alt="menu icon">
+        </div>
+        <ul
+          tabindex="0"
+          class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52 border-2"
+        >
+          <li><a>Homepage</a></li>
+          <li><a (click)="logout()">Logout</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="navbar-center">
+      <a class="btn btn-ghost text-xl">Get Mgadder</a>
+    </div>
+    <div class="navbar-end">
+      <button class="btn btn-ghost btn-circle">
+        <img src="assets/search.svg" class="size-5" alt="search button">
+      </button>
+      <button class="btn btn-ghost btn-circle">
+        <div class="indicator">
+          <img src="assets/notificationIcon.svg" class="size-5" alt="notification icon">
+          <span class="badge badge-xs badge-primary indicator-item"></span>
+        </div>
+      </button>
+    </div>
+  </nav>
+</header>
+<main class="px-10 flex gap-5">
+  <section class="w-8/12 flex flex-col gap-5">
+    <div class="grid grid-cols-2 border-2 border-white rounded-xl relative">
+      <div class="p-5 border-r">
+        <h1>Running Tracker</h1>
         <app-running></app-running>
       </div>
-      <div class=" p-10 border-l-2 border-b-2">
+      <div class="p-5 border-l">
         <h1>Calories Tracker</h1>
         <app-calories></app-calories>
       </div>
-    </section>
-    
-    <section class="flex">
-      <!-- cards -->
-      <div>
-        <h1>Blood Pressure</h1>
+      <div class="absolute w-full h-full top-0 left-0 rounded-xl z-20 bg-slate-900/95 flex justify-center items-center"
+        *ngIf="runningCaloriesErrors"
+      >
+        <p class="text-3xl font-bold text-white">Please fix the errors within the highlighted fields</p>
       </div>
-      <div>
-        <h1>Blood Glucose</h1>
+    </div>
+    <div class="grid grid-cols-2 border-2 border-white rounded-xl ">
+      <div class="p-5 border-r">
+        <h1>heart rate Tracker</h1>
+        <app-bpm></app-bpm>
       </div>
-      <div>
-        <h1>Body weight</h1>
+      <div class="p-5 border-l-2 ">
+        <h1>Weekly Sports Time</h1>
+        <app-sports></app-sports>
       </div>
-      <div>
-        <h1>Fat Percentage</h1>
-      </div>
-      <div>
-        <h1>BMI</h1>
-      </div>
-    </section>
-  </div>
+    </div>
+  </section>
+
+  <section class="border-2 rounded-xl w-4/12">
+    <app-forms></app-forms>
+  </section>
 </main>

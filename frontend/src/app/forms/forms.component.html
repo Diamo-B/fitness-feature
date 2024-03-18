@@ -1,0 +1,20 @@
+<div role="tablist" class="tabs tabs-lifted mt-2">
+  <a
+    role="tab"
+    class="tab"
+    [class.tab-active]="selectedTab == 1"
+    (click)="selectedTab = 1"
+    >Running & Calories</a
+  >
+  <a
+    role="tab"
+    class="tab"
+    [class.tab-active]="selectedTab == 2"
+    (click)="selectedTab = 2"
+    >Sports & BPM</a
+  >
+</div>
+<app-running-form [selectedTab]="selectedTab"></app-running-form>
+<div *ngIf="selectedTab == 2" class="flex justify-center items-center">
+  <p>Comming Soon</p>
+</div>
